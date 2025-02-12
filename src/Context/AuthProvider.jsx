@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AuthContext from "./AuthContext";
 import auth from "../Firebase/firebase.init";
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
 
 const AuthProvider = ({ children }) => {
@@ -12,6 +12,21 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
+
+
+    const signInUser = (email , password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+
+
+
+
+
+
+
+
 
 
     //We used this to know someone is still logged in or not
@@ -35,10 +50,18 @@ const AuthProvider = ({ children }) => {
     }, []); // Empty dependency array ensures this effect runs only once when the component mounts
     
 
+
+
+
+
+
+
+
     const authInfo = {
         user,
         loading,
         createUser,
+        signInUser,
     }
 
     return (
