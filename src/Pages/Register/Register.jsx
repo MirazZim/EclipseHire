@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import registerLottieData from "../../assets/Lottie/Register.json";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Register = () => {
 
@@ -58,7 +59,12 @@ const Register = () => {
                     <button className="w-full py-3 text-white bg-blue-500 hover:bg-blue-600 rounded-xl font-semibold transition duration-200 shadow-md">Sign Up</button>
                 </form>
 
-                <p className="text-gray-500 text-sm mt-4">Already have an account? <a href="#" className="text-blue-500 font-medium hover:underline">Log In</a></p>
+                <p className="text-gray-500 text-sm mt-4">
+                    Already have an account?{" "}
+                    <Link to="/signIn" className="text-blue-500 font-medium hover:underline">
+                        Log In
+                    </Link>
+                </p>
 
                 <div className="flex gap-4 mt-6 w-full">
                     

@@ -2,10 +2,11 @@ import { useContext } from 'react';
 import signInLottie from '../../assets/Lottie/SignIn.json'
 import Lottie from "lottie-react";
 import AuthContext from '../../Context/AuthContext';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
 
-    const {signInUser} = useContext(AuthContext)
+    const { signInUser } = useContext(AuthContext)
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -13,17 +14,17 @@ const SignIn = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        
-        const user = {email, password}
-        console.log(user); 
 
-        signInUser(email,password)
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.log(error.message)
-        })
+        const user = { email, password }
+        console.log(user);
+
+        signInUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
 
 
 
@@ -43,7 +44,7 @@ const SignIn = () => {
                 <form
                     onSubmit={handleSignIn}
                     className="w-full mt-6 space-y-4">
-                    
+
                     <div className="">
                         <label className="block text-gray-600 font-medium">Email Address</label>
                         <input type="email" name="email" placeholder="example@mail.com" className="mt-2 w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" required />
@@ -55,7 +56,12 @@ const SignIn = () => {
                     <button className="w-full py-3 text-white bg-blue-500 hover:bg-blue-600 rounded-xl font-semibold transition duration-200 shadow-md">Sign In</button>
                 </form>
 
-                <p className="text-gray-500 text-sm mt-4">New to this Website? <a href="#" className="text-blue-500 font-medium hover:underline">Sign Up</a></p>
+                <p className="text-gray-500 text-sm mt-4">
+                    New to this Website?{" "}
+                    <Link to="/register" className="text-blue-500 font-medium hover:underline">
+                        Sign Up
+                    </Link>
+                </p>
 
                 <div className="flex gap-4 mt-6 w-full">
 
