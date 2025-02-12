@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../../Context/AuthContext';
 import Logo from '../../assets/JobsLogo.png'
+import { motion } from "framer-motion";
 
 const NavBar = () => {
 
@@ -74,8 +75,28 @@ const NavBar = () => {
                         <button onClick={handleSignOut} className='btn'>Sign Out</button>
                     </> : <>
 
-                        <Link to="/register">Register</Link>
-                        <button className='btn'><Link to="/signIn">Sign In</Link> </button>
+                        
+                       
+
+                        <motion.button
+                        className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md transition-all"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 1.10 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
+                    >
+                       <Link to="/register">Register</Link>
+                    </motion.button>
+                       
+                        <motion.button
+                        className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md transition-all"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 1.10 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
+                    >
+                       <Link to="/signIn">Sign In</Link>
+                    </motion.button>
+
+                        
                     </>
                 }
 
