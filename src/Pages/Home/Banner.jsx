@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import Team1 from '../../assets/Team/Team1.jpg'
+import Team2 from '../../assets/Team/Team2.jpg'
 
 const Banner = () => {
     return (
@@ -6,16 +8,30 @@ const Banner = () => {
             <div className="hero-content flex flex-col lg:flex-row-reverse gap-10 max-w-6xl w-full">
                 
                 {/* Image Section */}
-                <motion.div 
-                    className="flex-1"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
-                    whileHover={{ scale: 1.03 }}
-                >
-                    <img
-                        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-                        className="max-w-sm rounded-3xl shadow-xl"
+                <motion.div className="flex-1 flex gap-2">
+                    <motion.img
+                        src={Team1}
+                        className="max-w-sm w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-600 shadow-xl"
+                        animate={{
+                            y: [10, -50, 10]
+                        }}
+                        transition={{
+                            duration: 5,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    />
+                    <motion.img
+                        src={Team2} 
+                        className="max-w-sm w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-600 shadow-xl"
+                        animate={{
+                            y: [10, -50, 10]
+                        }}
+                        transition={{
+                            duration: 5,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
                     />
                 </motion.div>
 
@@ -27,9 +43,20 @@ const Banner = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <motion.h1
-                        className="text-4xl md:text-5xl font-semibold text-gray-900"
-                        animate={{ x: [0, 10, 0] }} 
-                        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                        className="text-4xl md:text-5xl font-semibold"
+                        animate={{
+                            color: [
+                                '#000000', // black
+                                '#3B82F6', // blue-600
+                                '#4B5563', // gray-600
+                                '#000000'  // back to black to complete loop
+                            ]
+                        }}
+                        transition={{ 
+                            repeat: Infinity,
+                            duration: 3,
+                            ease: "linear"
+                        }}
                     >
                         Find Your Dream Job
                     </motion.h1>
