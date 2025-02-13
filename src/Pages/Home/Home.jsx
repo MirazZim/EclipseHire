@@ -1,11 +1,12 @@
 import Banner from "./Banner";
-
+import HotJobs from "./HotJobs";   
 
 const Home = () => {
     return (
-        <div>
-            <Banner></Banner>
-        </div>
+        <main>
+            <Banner />
+            <HotJobs />
+        </main>
     );
 };
 

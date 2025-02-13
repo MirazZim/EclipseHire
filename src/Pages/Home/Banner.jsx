@@ -25,7 +25,7 @@ const Banner = () => {
                         src={Team2} 
                         className="max-w-sm w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-600 shadow-xl"
                         animate={{
-                            y: [10, -50, 10]
+                            x: [10, -50, 10]
                         }}
                         transition={{
                             duration: 5,

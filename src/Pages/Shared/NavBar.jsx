@@ -34,7 +34,7 @@ const NavBar = () => {
 
 
     return (
-        <div className="navbar bg-gradient-to-r from-gray-100 to-gray-200 shadow-md px-4 py-2">
+        <div className="navbar bg-gradient-to-r from-gray-100 to-gray-200 shadow-md px-4 py-2 sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden hover:bg-gray-200 transition-colors">
