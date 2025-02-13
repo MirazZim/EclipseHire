@@ -47,8 +47,8 @@ const Banner = () => {
                         animate={{
                             color: [
                                 '#000000', // black
-                                '#3B82F6', // blue-600
-                                '#4B5563', // gray-600
+                                '#FF0000', // red
+                                '#3B82F6', // blue
                                 '#000000'  // back to black to complete loop
                             ]
                         }}
@@ -60,16 +60,12 @@ const Banner = () => {
                     >
                         Find Your Dream Job
                     </motion.h1>
-                    <p className="py-6 text-gray-600 text-lg">
+                    <p className="py-6 text-gray-600 text-lg font-bold">
                         Explore top opportunities in your field and take the next step in your career with ease.
                     </p>
                     
-                    {/* Buttery Smooth Hover Effect */}
                     <motion.button
-                        className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md transition-all"
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 1.10 }}
-                        transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
+                        className="btn text-lg relative bg-blue-600 border-none px-6 py-3 text-white uppercase cursor-pointer transition-all duration-500 ease-in-out before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-[#eeede9] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:delay-500 hover:before:w-full after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0 after:w-full after:bg-[#f3f2f0] after:transition-all after:duration-400 after:ease-in-out after:-z-10 hover:after:h-full hover:after:delay-400"
                     >
                         Get Started
                     </motion.button>

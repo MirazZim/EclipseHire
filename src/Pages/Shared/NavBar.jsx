@@ -86,9 +86,9 @@ const NavBar = () => {
                     </> : <>
                         {/* If user is not logged in, show Register and Sign In buttons */}
                         <motion.button
-                        className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md transition-all"
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 1.10 }}
+                         className="btn text-sm relative bg-blue-600 border-none px-4 py-2 text-white uppercase cursor-pointer transition-all duration-500 ease-in-out before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-[#eeede9] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:delay-500 hover:before:w-full after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0 after:w-full after:bg-black after:transition-all after:duration-400 after:ease-in-out after:-z-10 hover:after:h-full hover:after:delay-400"
+                         whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
                     >
                        {/* Link to registration page */}
@@ -97,9 +97,9 @@ const NavBar = () => {
                        
                         {/* Animated Sign In button */}
                         <motion.button
-                        className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md transition-all"
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 1.10 }}
+                       className="btn text-sm relative bg-blue-600 border-none px-4 py-2 text-white uppercase cursor-pointer transition-all duration-500 ease-in-out before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-[#eeede9] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:delay-500 hover:before:w-full after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0 after:w-full after:bg-black after:transition-all after:duration-400 after:ease-in-out after:-z-10 hover:after:h-full hover:after:delay-400"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
                     >
                        {/* Link to sign in page */}
