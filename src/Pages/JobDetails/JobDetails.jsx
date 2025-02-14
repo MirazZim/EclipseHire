@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const JobDetails = () => {
   const loaderData = useLoaderData();
@@ -128,13 +129,15 @@ const JobDetails = () => {
 
         {/* Apply Button */}
         <div className="flex justify-center pt-6">
-          <motion.button
+         <Link to={`/jobApply/${data.id} `}>
+           
+            <motion.button
             className="px-12 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl text-lg font-medium shadow-xl hover:shadow-2xl"
             whileHover={{ scale: 1.02, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)" }}
             whileTap={{ scale: 0.98 }}
           >
             Apply for this Position
-          </motion.button>
+          </motion.button></Link>
         </div>
       </div>
     </div>

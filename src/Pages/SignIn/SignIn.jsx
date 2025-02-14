@@ -6,8 +6,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
 
-    const location = useLocation();
-    const navigate = useNavigate();
+    const location = useLocation(); // Get current location for redirect after login
+    const navigate = useNavigate(); // Navigation hook for redirecting user
 
     const { signInUser } = useContext(AuthContext)
 
@@ -24,7 +24,7 @@ const SignIn = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user)    
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/') // Navigate to previous location or home
             })
             .catch(error => {
                 console.log(error.message)
