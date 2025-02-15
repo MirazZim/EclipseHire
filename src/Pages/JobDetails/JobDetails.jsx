@@ -3,12 +3,18 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const JobDetails = () => {
+  // 1. Gets the data loaded from the router using useLoaderData hook
+  // 2. Retrieves job details passed through route loader
+  // 3. Stores router data in loaderData variable
+  // 4. useLoaderData is a React Router hook for accessing loader data
+  // 5. This line fetches data that was pre-loaded during route transition
   const loaderData = useLoaderData();
-  
-  if (!loaderData) {
-    return <div>Loading...</div>;
-  }
 
+  // 1. Handles both nested and flat data structures
+  // 2. Uses fallback if data is not nested under .data property
+  // 3. Assigns final data object for use in component
+  // 4. Provides flexibility in API response format
+  // 5. Short-circuits to loaderData if .data property doesn't exist
   const data = loaderData.data || loaderData;
 
   if (!data) {

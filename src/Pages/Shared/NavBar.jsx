@@ -61,7 +61,7 @@ const NavBar = () => {
                     whileTap={{ scale: 0.98 }}
                 >
                     <img className='w-12' src={Logo} alt="Jobs Portal Logo" />
-                    <h3 className='text-3xl font-bold bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent'>Jobs Portal</h3>
+                    <h3 className='text-3xl font-bold bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent'>EclipseHire</h3>
                 </motion.a>
             </div>
             <div className="navbar-center hidden lg:flex">

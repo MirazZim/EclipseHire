@@ -1,43 +1,111 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import useAuth from '../../Hooks/useAuth';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const JobApply = () => {
     const loaderData = useLoaderData();
     const data = loaderData.data || loaderData;
+    const {user} = useAuth();
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
+        name: user?.displayName || '',
+        email: user?.email || '',
         phone: '',
         resume: '',
         coverLetter: '',
         portfolio: '',
         linkedin: ''
-    });
+    }); 
 
-    const handleSubmit = (e) => {
+    const SubmitJobApplication = async (e) => {
         e.preventDefault();
-        console.log('Form Data:', formData); // Log form data on submit
+        
+        try {
+            // Create form data object
+            const applicationData = {
+                ...formData,
+                jobId: data.id,
+                jobTitle: data.title,
+                company: data.company,
+                applicantId: user.uid,
+                appliedDate: new Date().toISOString(),
+                status: 'pending'
+            };
+              
+            fetch('http://localhost:5000/Job_Applications',{
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(applicationData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: "Vamos!",
+                        text: "You Have Successfully Applied for this Job!",
+                        icon: "success"
+                      });
+                }
+            })
+
+            // TODO: Send application data to backend
+            console.log('Submitting application:', applicationData);
+
+            // Show success message
+           
+            
+        } catch (error) {
+            console.error('Error submitting application:', error);
+            alert('Failed to submit application. Please try again.');
+        }
     };
 
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
         
-        // Handle file input separately
         if (type === 'file') {
-            console.log('File selected:', files[0]?.name); // Log file name when selected
-            setFormData({
-                ...formData,
-                [name]: files[0]
-            });
+            const file = files[0];
+            if (file) {
+                // Validate file size (5MB limit)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('File size must be less than 5MB');
+                    e.target.value = '';
+                    return;
+                }
+                
+                setFormData(prev => ({
+                    ...prev,
+                    [name]: file
+                }));
+            }
         } else {
-            console.log(`${name} changed:`, value); // Log each field change
-            setFormData({
-                ...formData,
+            setFormData(prev => ({
+                ...prev,
                 [name]: value
-            });
+            }));
         }
     };
+
+    if (!user) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-center">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Please sign in to apply</h2>
+                    <Link 
+                        to="/signin"
+                        className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                    >
+                        Sign In
+                    </Link>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-16 px-4 sm:px-6 lg:px-8">
@@ -57,7 +125,7 @@ const JobApply = () => {
                     </div>
 
                     {/* Application Form */}
-                    <form onSubmit={handleSubmit} className="space-y-10">
+                    <form onSubmit={SubmitJobApplication} className="space-y-10">
                         {/* Personal Information Section */}
                         <div className="space-y-6">
                             <h2 className="text-xl font-semibold text-gray-800">Personal Information</h2>
@@ -85,6 +153,7 @@ const JobApply = () => {
                                         placeholder="john@example.com"
                                         className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all duration-200"
                                         required
+                                        readOnly
                                     />
                                 </div>
                             </div>
