@@ -2,34 +2,36 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import useAuth from '../../Hooks/useAuth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const JobApply = () => {
     const loaderData = useLoaderData();
     const data = loaderData.data || loaderData;
     const {user} = useAuth();
+
+    const navigate = useNavigate(); 
+
     const [formData, setFormData] = useState({
         name: user?.displayName || '',
         email: user?.email || '',
         phone: '',
-        resume: '',
+        resume_link: '',
         coverLetter: '',
         portfolio: '',
         linkedin: ''
     }); 
 
-    const SubmitJobApplication = async (e) => {
+    const SubmitJobApplication = (e) => {
         e.preventDefault();
         
         try {
             // Create form data object
             const applicationData = {
                 ...formData,
-                jobId: data.id,
-                jobTitle: data.title,
+                job_id: data._id,
+                job_title: data.title,
                 company: data.company,
-                applicantId: user.uid,
                 appliedDate: new Date().toISOString(),
                 status: 'pending'
             };
@@ -50,6 +52,7 @@ const JobApply = () => {
                         text: "You Have Successfully Applied for this Job!",
                         icon: "success"
                       });
+                      navigate('/MyApplications');
                 }
             })
 
@@ -66,29 +69,11 @@ const JobApply = () => {
     };
 
     const handleChange = (e) => {
-        const { name, value, type, files } = e.target;
-        
-        if (type === 'file') {
-            const file = files[0];
-            if (file) {
-                // Validate file size (5MB limit)
-                if (file.size > 5 * 1024 * 1024) {
-                    alert('File size must be less than 5MB');
-                    e.target.value = '';
-                    return;
-                }
-                
-                setFormData(prev => ({
-                    ...prev,
-                    [name]: file
-                }));
-            }
-        } else {
-            setFormData(prev => ({
-                ...prev,
-                [name]: value
-            }));
-        }
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
     };
 
     if (!user) {
@@ -194,18 +179,17 @@ const JobApply = () => {
                             <h2 className="text-xl font-semibold text-gray-800">Application Documents</h2>
                             <div className="space-y-6">
                                 <div className="space-y-2">
-                                    <label className="text-gray-700 font-medium block">Resume/CV</label>
-                                    <div className="relative">
-                                        <input
-                                            type="file"
-                                            name="resume"
-                                            accept=".pdf,.doc,.docx"
-                                            onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100"
-                                            required
-                                        />
-                                    </div>
-                                    <p className="text-sm text-gray-500 mt-1">Accepted formats: PDF, DOC, DOCX (Max 5MB)</p>
+                                    <label className="text-gray-700 font-medium block">Resume Link</label>
+                                    <input
+                                        type="url"
+                                        name="resume_link"
+                                        value={formData.resume_link}
+                                        onChange={handleChange}
+                                        placeholder="Link to your resume (Google Drive, Dropbox, etc.)"
+                                        className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all duration-200"
+                                        required
+                                    />
+                                    <p className="text-sm text-gray-500 mt-1">Please provide a link to your resume hosted online</p>
                                 </div>
 
                                 <div className="space-y-2">

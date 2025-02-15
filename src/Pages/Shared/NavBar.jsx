@@ -23,7 +23,7 @@ const NavBar = () => {
     const links = <>
 
         <li><NavLink to = "/">Home</NavLink></li>
-        
+        <li><NavLink to = "/MyApplications">My Applications</NavLink></li>
 
        
 
