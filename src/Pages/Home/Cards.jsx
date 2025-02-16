@@ -49,10 +49,9 @@ const Cards = () => {
                 {jobCategories.map((category, index) => (
                     <motion.div
                         key={category.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 1.10 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
                         className="bg-white rounded-full p-8 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 backdrop-blur-sm"
                     >
                         <div className="flex flex-col items-center text-center">
