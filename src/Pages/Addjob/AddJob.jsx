@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
-
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const AddJob = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();   
 
   // Handle form submission and collect all form data
   const handleSubmit = (e) => {
@@ -64,6 +66,25 @@ const AddJob = () => {
     };
 
     console.log(jobData);
+
+    fetch("http://localhost:5000/jobs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jobData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success",
+            text: "Job posted successfully",
+            icon: "success",
+          });
+          navigate("/");    
+        }
+      });
   };
 
   return (
@@ -320,7 +341,7 @@ const AddJob = () => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
+            transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
               className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               type="submit"
             >
