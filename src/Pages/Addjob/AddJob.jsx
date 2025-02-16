@@ -82,7 +82,7 @@ const AddJob = () => {
             text: "Job posted successfully",
             icon: "success",
           });
-          navigate("/");    
+          navigate("/MyPostedJobs");    
         }
       });
   };
