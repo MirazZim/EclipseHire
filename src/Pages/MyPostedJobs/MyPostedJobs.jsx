@@ -76,6 +76,9 @@ const MyPostedJobs = () => {
                     <span className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">
                       {job.jobType}
                     </span>
+                    <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
+                      {job.applicationCount || 0} Applications
+                    </span>
                   </div>
                 </div>
 
