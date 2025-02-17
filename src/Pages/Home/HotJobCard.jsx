@@ -18,6 +18,7 @@ const HotJobCard = ({ job }) => {
     status,
     hr_email,
     hr_name,
+    applicationCount
   } = job;
 
   return (
@@ -140,7 +141,7 @@ const HotJobCard = ({ job }) => {
           </div>
         </div>
 
-        {/* Salary */}
+        {/* Salary Range */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <div>
             <p className="text-xs text-gray-500">Salary Range</p>
@@ -151,21 +152,31 @@ const HotJobCard = ({ job }) => {
             </p>
           </div>
           {/* Apply Button */}
-          <Link to = {`/Jobs/${_id}`}>
-          <motion.button
-            className="px-6 py-3 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-colors duration-300 text-sm font-medium shadow-md"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{
-              type: "spring",
-              stiffness: 500,
-              damping: 10000000,
-            mass: 0.5,
+          <Link to={`/Jobs/${_id}`}>
+            <motion.button
+              className="px-6 py-3 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-colors duration-300 text-sm font-medium shadow-md"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                damping: 10000000,
+                mass: 0.5,
               }}
             >
               Apply Now
             </motion.button>
           </Link>
+        </div>
+
+        {/* Application Count */}
+        <div className="pt-4 border-t border-gray-100">
+          <div className="flex items-center justify-center bg-purple-50 px-4 py-2 rounded-xl">
+            <svg className="w-4 h-4 text-purple-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+            </svg>
+            <span className="text-sm font-medium text-purple-600">{applicationCount || 0} Applied</span>
+          </div>
         </div>
       </div>
     </div>
