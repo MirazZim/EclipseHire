@@ -19,15 +19,14 @@ const SignIn = () => {
     const password = form.password.value;
 
     const user = { email, password };
-    
 
     signInUser(email, password)
       .then((result) => {
-        
         const user = { email: email };
-        axios.post("http://localhost:5000/jwt", user).then((data) => {
-          console.log(data);
-        });
+        axios.post("http://localhost:5000/jwt", user)
+          .then((res) => {
+            console.log(res.data);
+          });
 
         //navigate(location?.state ? location.state : "/"); // Navigate to previous location or home
       })
