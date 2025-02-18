@@ -5,6 +5,7 @@ import AuthContext from "../../Context/AuthContext";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 const SignIn = () => {
   const location = useLocation(); // Get current location for redirect after login
   const navigate = useNavigate(); // Navigation hook for redirecting user
@@ -23,9 +24,18 @@ const SignIn = () => {
     signInUser(email, password)
       .then((result) => {
         const user = { email: email };
-        axios.post("http://localhost:5000/jwt", user)
+        axios.post("http://localhost:5000/jwt", user, {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
           .then((res) => {
             console.log(res.data);
+            navigate(location?.state ? location.state : "/"); // Navigate after successful login
+          })
+          .catch((error) => {
+            console.error("JWT Error:", error);
           });
 
         //navigate(location?.state ? location.state : "/"); // Navigate to previous location or home
