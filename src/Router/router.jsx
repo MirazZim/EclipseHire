@@ -5,7 +5,7 @@ import Register from "../Pages/Register/Register";
 import SignIn from "../Pages/SignIn/SignIn";
 import JobDetails from "../Pages/JobDetails/JobDetails";
 import PrivateRoute from "./PrivateRoute";
-import JobApply from "../Pages/JobApply/JobApply";  
+import JobApply from "../Pages/JobApply/JobApply";
 import MyApplications from "../Pages/MyApplications/MyApplications";
 import AddJob from "../Pages/Addjob/AddJob";
 import MyPostedJobs from "../Pages/MyPostedJobs/MyPostedJobs";
@@ -22,31 +22,53 @@ const router = createBrowserRouter([
       },
       {
         path: "/Jobs/:id",
-        element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <JobDetails></JobDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/jobs/${params.id}`),
       },
       {
         path: "register",
         element: <Register></Register>,
       },
       {
-        path: "JobApply/:id", 
-        element: <PrivateRoute><JobApply></JobApply></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`),
-        
+        path: "JobApply/:id",
+        element: (
+          <PrivateRoute>
+            <JobApply></JobApply>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/jobs/${params.id}`),
       },
       {
         path: "viewApplications/:job_id",
-        element: <PrivateRoute><ViewApplications></ViewApplications></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/job_applications/jobs/${params.job_id}`),
+        element: (
+          <PrivateRoute>
+            <ViewApplications></ViewApplications>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/job_applications/jobs/${params.job_id}`),
       },
       {
         path: "addJob",
-        element: <PrivateRoute><AddJob></AddJob></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddJob></AddJob>
+          </PrivateRoute>
+        ),
       },
       {
         path: "MyPostedJobs",
-        element: <PrivateRoute><MyPostedJobs></MyPostedJobs></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <MyPostedJobs></MyPostedJobs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "signIn",
@@ -54,7 +76,11 @@ const router = createBrowserRouter([
       },
       {
         path: "MyApplications",
-        element: <PrivateRoute><MyApplications></MyApplications></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <MyApplications></MyApplications>
+          </PrivateRoute>
+        ),
       },
     ],
   },
