@@ -67,7 +67,7 @@ const AddJob = () => {
 
     console.log(jobData);
 
-    fetch("http://localhost:5000/jobs", {
+    fetch("https://job-portal-server-kappa-two.vercel.app/jobs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

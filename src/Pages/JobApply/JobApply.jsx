@@ -36,7 +36,7 @@ const JobApply = () => {
                 status: 'pending'
             };
               
-            fetch('http://localhost:5000/Job_Applications',{
+            fetch('https://job-portal-server-kappa-two.vercel.app/Job_Applications',{
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

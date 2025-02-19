@@ -24,7 +24,7 @@ const SignIn = () => {
     signInUser(email, password)
       .then((result) => {
         const user = { email: email };
-        axios.post("http://localhost:5000/jwt", user, {
+        axios.post("https://job-portal-server-kappa-two.vercel.app/jwt", user, {
           withCredentials: true,
           headers: {
             "Content-Type": "application/json",

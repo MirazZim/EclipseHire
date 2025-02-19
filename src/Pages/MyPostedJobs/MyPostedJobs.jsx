@@ -10,7 +10,7 @@ const MyPostedJobs = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/Jobs?email=${user?.email}`)
+    fetch(`https://job-portal-server-kappa-two.vercel.app/Jobs?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);

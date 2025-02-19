@@ -28,7 +28,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/jobs/${params.id}`),
+          fetch(`https://job-portal-server-kappa-two.vercel.app/jobs/${params.id}`),
       },
       {
         path: "register",
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/jobs/${params.id}`),
+          fetch(`https://job-portal-server-kappa-two.vercel.app/jobs/${params.id}`),
       },
       {
         path: "viewApplications/:job_id",
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/job_applications/jobs/${params.job_id}`),
+          fetch(`https://job-portal-server-kappa-two.vercel.app/job_applications/jobs/${params.job_id}`),
       },
       {
         path: "addJob",

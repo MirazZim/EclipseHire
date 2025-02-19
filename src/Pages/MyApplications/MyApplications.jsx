@@ -10,14 +10,14 @@ const MyApplications = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    /* fetch(`http://localhost:5000/Job_Applications?email=${user?.email}`,{})
+    /* fetch(`https://job-portal-server-kappa-two.vercel.app/Job_Applications?email=${user?.email}`,{})
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
         setLoading(false);
       }); */
 
-    axios.get(`http://localhost:5000/Job_Applications?email=${user?.email}`,{
+    axios.get(`https://job-portal-server-kappa-two.vercel.app/Job_Applications?email=${user?.email}`,{
         withCredentials: true,
         headers: {
             "Content-Type": "application/json",
