@@ -3,7 +3,7 @@
 🚀 **Connecting Job Seekers & Employers Seamlessly**  
 
 ### 🌐 **Live Demo**  
-- **Client:** [EclipseHire Job Portal](https://job-portal-2ca92.firebaseapp.com)  
+- **Client:** [EclipseHire Job Portal](https://job-portal-2ca92.web.app/)  
 - **Server:** [EclipseHire Backend](https://job-portal-server-kappa-two.vercel.app)  
 
 ---
