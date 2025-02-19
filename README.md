@@ -1,11 +1,8 @@
-Here’s a **modern, clean, and visually appealing GitHub README** for your **EclipseHire Job Portal** project. 🚀  
-
----
 
 ## **EclipseHire** 🏢💼  
 🚀 **Connecting Job Seekers & Employers Seamlessly**  
 
-![EclipseHire Banner](https://via.placeholder.com/1000x300?text=EclipseHire+Job+Portal) <!-- Replace this with your actual banner image -->
+![EclipseHire Banner]([https://via.placeholder.com/1000x300?text=EclipseHire+Job+Portal](https://i.ibb.co.com/Cpqrk49T/image.png)) <!-- Replace this with your actual banner image -->
 
 ### 🌐 **Live Demo**  
 - **Client:** [EclipseHire Job Portal](https://job-portal-2ca92.firebaseapp.com)  
