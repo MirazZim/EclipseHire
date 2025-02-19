@@ -104,8 +104,6 @@ For more details, visit the [GitHub Repository](https://github.com/MirazZim/Ecli
 
 ### **📩 Connect with Me**
 - GitHub: [@MirazZim](https://github.com/MirazZim)  
-- LinkedIn: [Your LinkedIn](#)  
-- Email: your.email@example.com  
 
 ---
 
