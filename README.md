@@ -2,8 +2,6 @@
 ## **EclipseHire** 🏢💼  
 🚀 **Connecting Job Seekers & Employers Seamlessly**  
 
-![EclipseHire Banner]([https://via.placeholder.com/1000x300?text=EclipseHire+Job+Portal](https://i.ibb.co.com/Cpqrk49T/image.png)) <!-- Replace this with your actual banner image -->
-
 ### 🌐 **Live Demo**  
 - **Client:** [EclipseHire Job Portal](https://job-portal-2ca92.firebaseapp.com)  
 - **Server:** [EclipseHire Backend](https://job-portal-server-kappa-two.vercel.app)  
