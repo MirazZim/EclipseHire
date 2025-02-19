@@ -50,12 +50,12 @@ const NavBar = () => {
                 </div>
                 <Link to="/">
                     <motion.div 
-                        className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+                        className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                     >
-                        <img className='w-12' src={Logo} alt="Jobs Portal Logo" />
-                        <h3 className='text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent'>EclipseHire</h3>
+                        <img className='w-8 lg:w-12' src={Logo} alt="Jobs Portal Logo" />
+                        <h3 className='text-xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent'>EclipseHire</h3>
                     </motion.div>
                 </Link>
             </div>
@@ -64,12 +64,12 @@ const NavBar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end gap-4">
+            <div className="navbar-end gap-2 lg:gap-4">
                 {user ? (
                     <motion.button 
-                        className="backdrop-blur-md bg-gradient-to-r from-blue-600/70 to-blue-700/70 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all font-medium border border-white/10"
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 1.10 }}
+                        className="backdrop-blur-md bg-gradient-to-r from-blue-600 to-blue-700/70 text-white px-2 py-1 text-xs lg:px-6 lg:py-3 lg:text-base rounded-full shadow-lg hover:shadow-xl transition-all font-medium border border-white/10"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
                         onClick={handleSignOut}
                     >
@@ -78,18 +78,18 @@ const NavBar = () => {
                 ) : (
                     <>
                         <motion.button
-                            className="backdrop-blur-md btn text-sm relative bg-blue-600/60 border-white/10 px-4 py-2 text-white uppercase cursor-pointer transition-all duration-500 ease-in-out before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white/30 before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:delay-500 hover:before:w-full after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0 after:w-full after:bg-black/30 after:transition-all after:duration-400 after:ease-in-out after:-z-10 hover:after:h-full hover:after:delay-400"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 1.05 }}
+                            className="backdrop-blur-md btn btn-sm lg:btn-md text-[10px] lg:text-sm relative bg-blue-600 border-white/10 px-2 py-0.5 lg:px-4 lg:py-2 text-white uppercase cursor-pointer transition-all duration-300 rounded-full"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
                         >
                             <Link to="/register" className="font-medium">Register</Link>
                         </motion.button>
                         
                         <motion.button
-                            className="backdrop-blur-md btn text-sm relative bg-blue-600/60 border-white/10 px-4 py-2 text-white uppercase cursor-pointer transition-all duration-500 ease-in-out before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white/30 before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:delay-500 hover:before:w-full after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0 after:w-full after:bg-black/30 after:transition-all after:duration-400 after:ease-in-out after:-z-10 hover:after:h-full hover:after:delay-400"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 1.05 }}
+                            className="backdrop-blur-md btn btn-sm lg:btn-md text-[10px] lg:text-sm relative bg-blue-600 border-white/10 px-2 py-0.5 lg:px-4 lg:py-2 text-white uppercase cursor-pointer transition-all duration-300 rounded-full"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             transition={{ type: "spring", stiffness: 500, damping: 10000000, mass: 0.5 }}
                         >
                             <Link to="/signIn" className="font-medium">Sign In</Link>
